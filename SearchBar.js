@@ -5,7 +5,7 @@ function SearchBar(props) {
   return (
     <View>
       <Button title='Search' onPress={props.searchSubmit}/>
-      <TextInput onChangeText={props.handleSearch} placeholder='...' value={props.searchState}/>
+      <TextInput name='term' onChangeText={props.handleSearch} placeholder='Term' value={props.searchState}/>
     </View>
   )
 }
