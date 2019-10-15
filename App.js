@@ -1,12 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import SearchBar from './SearchBar'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>test</Text>
-    </View>
-  );
+class App extends React.Component {
+
+  state = {
+    search: '',
+    apiKey: 'i9ILNojyV0rEfrbzBuuPZxi6GnlLd-Cf4x7et90cMeTO5WpkO6cyJLpW1TcXnDwUBCgnnjR6yiyNxGwyxHvNoOH3C7QdjlXNi5QD8h6sxUIHJ3n5r3RHvVlAjiGlXXYx'
+  };
+
+  handleSearch = (event) => {
+    this.setState({
+      search: event
+    })
+  }
+
+  handleSubmit = () => {
+    console.log(this.state.apiKey)
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <SearchBar searchSubmit={this.handleSubmit} searchState={this.state.search} handleSearch={this.handleSearch}/>
+      </View>
+    );
+  };
 }
 
 const styles = StyleSheet.create({
@@ -17,3 +36,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
